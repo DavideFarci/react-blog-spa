@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 
 const initialData = {
@@ -99,7 +100,7 @@ const PostCreateOverlay = ({ show, onClosing, postToEdit, onSave, isNew }) => {
       formDataTOSend.append(key, formValues[key]);
     });
 
-    //gestire caso edit o create
+    console.log(formDataTOSend);
 
     try {
       // await onSave(formValues);
@@ -175,14 +176,15 @@ const PostCreateOverlay = ({ show, onClosing, postToEdit, onSave, isNew }) => {
               onChange={(e) => handleDataForm(e, "image")}
               className="p-1 rounded-md text-black shadow-md"
             />
-            {/* <img
+            <img
               src={
                 typeof formValues.image === "string"
                   ? formValues.image
                   : URL.createObjectURL(formValues.image)
               }
-              alt=""
-            /> */}
+              alt={formValues.title}
+              className="w-52 mt-2"
+            />
           </div>
           {/* Contenuto  */}
           <div className="mb-4 flex flex-col">

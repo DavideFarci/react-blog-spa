@@ -1,16 +1,9 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
-const Post = ({ post, editingId, onSelectedPost }) => {
-  const {
-    id,
-    title,
-    slug,
-    image,
-    content,
-    published,
-    category,
-    createdAt,
-    tags,
-  } = post;
+const Post = ({ post, onSelectedPost }) => {
+  const { title, slug, image, content, published, category, createdAt, tags } =
+    post;
 
   return (
     <div className="card border p-3 max-w-3xl flex">
@@ -26,10 +19,17 @@ const Post = ({ post, editingId, onSelectedPost }) => {
         </button>
         <button
           title="Elimina"
-          className=" px-4 py-2 rounded-md border border-red-500 bg-red-500/20 hover:bg-red-500/40 duration-100"
+          className=" px-4 py-2 rounded-md border border-red-500 bg-red-500/20 hover:bg-red-500/40 duration-100 mr-2"
         >
           <i className="fa-solid fa-trash-can text-red-500"></i>
         </button>
+        <Link
+          title="Visualizza Post"
+          to={`/posts/${slug}`}
+          className=" px-4 py-2 rounded-md border border-green-500 bg-green-500/20 hover:bg-green-500/40 duration-100"
+        >
+          <i className="fa-solid fa-eye text-green-700"></i>
+        </Link>
       </div>
       <div className="p-2">
         <p className="text-sm mb-3">{content}</p>

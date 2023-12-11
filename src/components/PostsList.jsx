@@ -46,12 +46,12 @@ const PostsList = () => {
         },
       });
     } else {
-      await axios.put(`http://localhost:5174/posts/${payload.slug}`, payload);
-      // await axios.put(`http://localhost:5174/posts/${payload.slug}`, payload, {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      // });
+      // await axios.put(`http://localhost:5174/posts/${payload.slug}`, payload);
+      await axios.put(`http://localhost:5174/posts/${payload.slug}`, payload, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
     }
 
     getPosts();
